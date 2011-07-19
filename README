@@ -1,0 +1,24 @@
+                         sysjt - SYStray Job Tracker
+
+Provides system tray notification icon to monitor execution of long running 
+(not only) command line applications.
+
+Usage:
+
+1) start server
+
+  $ ./sysjt &
+
+2) execute command(s) using the provided wrapper script - e.g. make
+
+  $ ./sysjt-wrapper make
+
+Command execution is visualized with a colored icon.
+
+  - blue: running
+  - green: finished successfully
+  - red: failed
+
+Requirements:
+
+Qt, QtDBus, running DBus session-bus
