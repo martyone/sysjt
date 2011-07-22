@@ -330,7 +330,8 @@ QPixmap SystemTrayIcon::spot(Qt::GlobalColor color)
 	QPainterPath path;
 	path.addEllipse((ICON_SIZE-SPOT_SIZE)/2, (ICON_SIZE-SPOT_SIZE)/2, 
 			SPOT_SIZE, SPOT_SIZE);
-  QRadialGradient gradient(ICON_SIZE/2, ICON_SIZE/2, SPOT_SIZE/2);
+	QRadialGradient gradient(ICON_SIZE/2, ICON_SIZE/2, SPOT_SIZE/2, SPOT_SIZE, 
+			SPOT_SIZE*.8);
   gradient.setColorAt(0, Qt::white);
   gradient.setColorAt(1, color);
   painter.fillPath(path, gradient);
