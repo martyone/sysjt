@@ -203,9 +203,14 @@ void SystemTrayIcon::onIconActivated(QSystemTrayIcon::ActivationReason reason)
 	QRect geometry = QRect(QPoint(0, 0), m_popup->sizeHint());
 
 	if (iconGeometry.left() + geometry.width() < availableGeometry.right())
-		geometry.moveTopLeft(iconGeometry.bottomLeft());
+		geometry.moveLeft(iconGeometry.left());
 	else
-		geometry.moveTopRight(iconGeometry.bottomRight());
+		geometry.moveRight(iconGeometry.right());
+
+	if (iconGeometry.center().y() < availableGeometry.center().y())
+		geometry.moveTop(iconGeometry.bottom());
+	else
+		geometry.moveBottom(iconGeometry.top());
 
 	m_popup->setGeometry(geometry);
 
